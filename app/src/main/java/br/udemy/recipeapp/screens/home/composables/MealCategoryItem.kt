@@ -1,6 +1,7 @@
 package br.udemy.recipeapp.screens.home.composables
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
@@ -16,11 +17,19 @@ import br.udemy.recipeapp.ui.theme.RecipeAppTheme
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
-fun MealCategoryItem(mealCategory: MealCategory) {
+fun MealCategoryItem(
+    mealCategory: MealCategory,
+    navigateToCategoryDetailsScreen: (MealCategory) -> Unit
+) {
     Column(
-        modifier = Modifier.padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        modifier = Modifier
+            .padding(8.dp)
+            .clickable {
+                navigateToCategoryDetailsScreen(mealCategory)
+            },
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+        ) {
         Image(
             painter = rememberAsyncImagePainter(mealCategory.strCategoryThumb),
             contentDescription = mealCategory.strCategoryDescription,
@@ -44,6 +53,6 @@ fun CategoryItemPreview() {
         strCategoryThumb = "https://www.themealdb.com/images/category/beef.png"
     )
     RecipeAppTheme {
-        MealCategoryItem(mealCategory = mealCategory)
+        MealCategoryItem(mealCategory = mealCategory, navigateToCategoryDetailsScreen = {})
     }
 }

@@ -11,10 +11,13 @@ import br.udemy.recipeapp.dataclasses.MealCategory
 import br.udemy.recipeapp.ui.theme.RecipeAppTheme
 
 @Composable
-fun MealCategoryList(categories: List<MealCategory>) {
+fun MealCategoryList(categories: List<MealCategory>, navigateToCategoryDetailsScreen: (MealCategory) -> Unit) {
     LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
         items(categories) { category ->
-            MealCategoryItem(mealCategory = category)
+            MealCategoryItem(
+                mealCategory = category,
+                navigateToCategoryDetailsScreen = navigateToCategoryDetailsScreen
+            )
         }
     }
 }
@@ -29,6 +32,14 @@ fun CategorylistPreview() {
         strCategoryThumb = "https://www.themealdb.com/images/category/beef.png"
     )
     RecipeAppTheme {
-        MealCategoryList(categories = listOf(mealCategory, mealCategory, mealCategory, mealCategory))
+        MealCategoryList(
+            categories = listOf(
+                mealCategory,
+                mealCategory,
+                mealCategory,
+                mealCategory
+            ),
+            navigateToCategoryDetailsScreen = {}
+        )
     }
 }

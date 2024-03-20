@@ -9,7 +9,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import br.udemy.recipeapp.screens.home.HomeScreen
+import br.udemy.recipeapp.screens.categorydetails.CategoryDetailsScreen
+import br.udemy.recipeapp.screens.root.RootScreen
 import br.udemy.recipeapp.ui.theme.RecipeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,17 +27,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    RootScreen()
                 }
             }
         }
     }
 }
 
+
+
 @Preview
 @Composable
 fun AppPreview() {
     RecipeAppTheme {
-        HomeScreen()
+        RootScreen()
     }
 }

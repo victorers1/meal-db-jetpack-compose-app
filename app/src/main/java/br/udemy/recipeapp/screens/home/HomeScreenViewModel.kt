@@ -8,7 +8,7 @@ import br.udemy.recipeapp.dataclasses.HomeScreenState
 import br.udemy.recipeapp.services.api.recipeService
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeScreenViewModel : ViewModel() {
     private val _homeScreenState = mutableStateOf(HomeScreenState())
     val homeScreenState: State<HomeScreenState> = _homeScreenState
 
