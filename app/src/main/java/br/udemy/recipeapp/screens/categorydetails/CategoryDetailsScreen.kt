@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import br.udemy.recipeapp.dataclasses.MealCategory
 import coil.compose.rememberAsyncImagePainter
 
-@ExperimentalMaterial3Api
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryDetailsScreen(category: MealCategory, navigateToHomeScreen: () -> Unit) {
     Scaffold(
